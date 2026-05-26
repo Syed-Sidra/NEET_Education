@@ -29,7 +29,8 @@ body{font-family:var(--fb);background:var(--w);color:var(--g800);overflow-x:hidd
 nav{position:fixed;top:0;inset-x:0;height:var(--nh);z-index:1000;background:rgba(10,22,40,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(37,99,235,.2);transition:all .3s}
 nav.light-nav{background:rgba(255,255,255,.97);border-bottom:1px solid var(--g200)}
 .ni{max-width:1300px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo{display:flex;align-items:center;gap:20px;text-decoration:none}
+
 .logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--ac),var(--gr));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:13px;color:#fff;letter-spacing:-.5px;flex-shrink:0}
 .logo-txt{font-family:var(--fh);font-weight:700;font-size:13px;line-height:1.25;color:#fff}
 .logo-txt span{color:var(--ac3)}
@@ -176,21 +177,116 @@ section{padding:80px 0}
 .fsoc:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
 
 /* ── GALLERY ── */
-.gal-bg{background:var(--b1);overflow:hidden}
-.gal-bg .sh2{color:#fff}
-.gal-bg .sdesc{color:rgba(255,255,255,.65)}
-.gal-bg .stag{background:rgba(99,102,241,.25);color:#a5b4fc;border-color:rgba(99,102,241,.3)}
-.gal-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;justify-content:center}
-.gcat{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);padding:7px 16px;border-radius:999px;font-size:13px;cursor:pointer;transition:.2s;font-weight:500;font-family:var(--fh)}
-.gcat:hover,.gcat.active{background:#fff;color:var(--ac2)}
-.gal-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
-.gal-scroll::-webkit-scrollbar{height:4px}
-.gal-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.3);border-radius:2px}
-.gc{min-width:200px;flex-shrink:0;border-radius:14px;overflow:hidden;scroll-snap-align:start;position:relative;cursor:pointer}
-.gc-img{height:160px;background:rgba(255,255,255,.06);border:2px dashed rgba(255,255,255,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(255,255,255,.45);font-size:12px;transition:.4s;border-radius:14px}
-.gc:hover .gc-img{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
-.gc-label{position:absolute;bottom:0;inset-x:0;background:linear-gradient(to top,rgba(10,22,40,.95),transparent);padding:22px 12px 10px;color:rgba(255,255,255,.85);font-size:12px;font-weight:600;opacity:0;transition:.3s;border-radius:0 0 14px 14px}
-.gc:hover .gc-label{opacity:1}
+.gal-bg{
+  background:var(--b1);
+  overflow:hidden;
+}
+
+.gal-bg .sh2{
+  color:#fff;
+}
+
+.gal-bg .sdesc{
+  color:rgba(255,255,255,.65);
+}
+
+.gal-bg .stag{
+  background:rgba(99,102,241,.25);
+  color:#a5b4fc;
+  border-color:rgba(99,102,241,.3);
+}
+
+.gal-cats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:28px;
+  justify-content:center;
+}
+
+.gcat{
+  background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15);
+  padding:7px 16px;
+  border-radius:999px;
+  font-size:13px;
+  cursor:pointer;
+  transition:.2s;
+  font-weight:500;
+  font-family:var(--fh);
+}
+
+.gcat:hover,
+.gcat.active{
+  background:#fff;
+  color:var(--ac2);
+}
+
+.gal-scroll{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding-bottom:8px;
+  scroll-snap-type:x mandatory;
+}
+
+.gal-scroll::-webkit-scrollbar{
+  height:4px;
+}
+
+.gal-scroll::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.3);
+  border-radius:2px;
+}
+
+.gc{
+  min-width:260px;
+  flex-shrink:0;
+  border-radius:16px;
+  overflow:hidden;
+  scroll-snap-align:start;
+  position:relative;
+  cursor:pointer;
+}
+
+/* IMAGE FIX */
+.gc-img{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  border-radius:16px;
+  position:relative;
+}
+
+.gc-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.4s ease;
+}
+
+.gc:hover .gc-img img{
+  transform:scale(1.08);
+}
+
+.gc-label{
+  position:absolute;
+  bottom:0;
+  inset-x:0;
+  background:linear-gradient(to top,rgba(10,22,40,.95),transparent);
+  padding:22px 12px 10px;
+  color:rgba(255,255,255,.95);
+  font-size:13px;
+  font-weight:600;
+  opacity:0;
+  transition:.3s;
+}
+
+.gc:hover .gc-label{
+  opacity:1;
+}
 
 /* ── TESTIMONIALS ── */
 .test-bg{background:var(--g50)}
@@ -311,6 +407,91 @@ body.dark .fi,body.dark .fsel{background:#1e293b;border-color:rgba(255,255,255,.
 body.dark nav{background:rgba(10,22,40,.98)!important}
 body.dark .ci-ico{background:rgba(37,99,235,.2)}
 body.dark .map-ph{border-color:rgba(255,255,255,.1)}
+body.dark #founder{
+  background:#0f172a !important;
+}
+
+body.dark #founder h2,
+body.dark #founder h3{
+  color:#fff !important;
+}
+
+body.dark #founder p{
+  color:rgba(255,255,255,.75) !important;
+}
+
+body.dark #founder > div > div{
+  background:#1e293b !important;
+  border-color:rgba(255,255,255,.08) !important;
+}
+
+/* FIX TEXT COLORS IN DARK MODE */
+
+body.dark p,
+body.dark span,
+body.dark div,
+body.dark .sdesc,
+body.dark .cc-feat,
+body.dark .cc-dur,
+body.dark .fee-l,
+body.dark .fee-note,
+body.dark .tc-q,
+body.dark .tc-role,
+body.dark .fc-qual,
+body.dark .ci-lbl,
+body.dark .ci-val,
+body.dark .step,
+body.dark .faq-a,
+body.dark .ft-desc,
+body.dark .ft-links a{
+  color:rgba(255,255,255,.78)!important;
+}
+
+/* headings */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark .cc-name,
+body.dark .fc-name,
+body.dark .tc-name{
+  color:#fff!important;
+}
+
+/* cards */
+body.dark .cc,
+body.dark .fc,
+body.dark .tc,
+body.dark .faq-i,
+body.dark .form-wrap,
+body.dark .ai-card{
+  background:#1e293b!important;
+  border-color:rgba(255,255,255,.08)!important;
+}
+
+/* buttons */
+body.dark .btn-g{
+  border-color:rgba(255,255,255,.25);
+  color:#fff;
+}
+
+body.dark .btn-g:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* footer */
+body.dark footer{
+  background:#020617;
+}
+
+/* inputs */
+body.dark input,
+body.dark textarea,
+body.dark select{
+  background:#0f172a!important;
+  color:#fff!important;
+  border-color:rgba(255,255,255,.1)!important;
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
@@ -335,8 +516,10 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
 <nav id="nav">
   <div class="ni">
     <a class="logo" href="#home">
-      <div class="logo-mark">NIT<br>&M</div>
-      <div class="logo-txt">NEET Institute of<br><span>Technology & Management</span></div>
+      <img src="logo.jfif" alt="NEET Logo" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #fff;">
+      <div class="logo-txt" style="font-size:14px">
+        NEET Institute of<br><span>Technology & Management</span>
+      </div>
     </a>
     <div class="nl">
       <a href="#home" class="act">Home</a>
@@ -350,7 +533,6 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
       <a href="#admission" class="nav-cta-btn" style="margin-left:6px">Enroll Now</a>
     </div>
     <div style="display:flex;align-items:center;gap:6px">
-      <button class="theme-btn" id="themeBtnMob">🌙</button>
       <div class="ham" id="ham"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -365,6 +547,7 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
   <a href="#job-assist">💼 Job Assistance</a>
   <a href="#admission">📝 Admission</a>
   <a href="#contact">📞 Contact</a>
+  <button class="theme-btn" id="themeBtnMob">🌙 Toggle Theme</button>
 </div>
 
 <!-- ─ HERO ─ -->
@@ -374,6 +557,11 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
   </div>
   <div class="hero-grid">
     <div>
+      
+<div style="margin-bottom:20px">
+  <img src="logo.jfif" alt="Institute Logo" style="width:120px;height:120px;border-radius:50%;border:4px solid rgba(255,255,255,.2);object-fit:cover;box-shadow:0 8px 30px rgba(0,0,0,.35)">
+</div>
+
       <div class="hero-pill">🏆 NIELIT &amp; UPDESCO Authorized Center</div>
       <h1>Build Your Future With<br><em>Professional Computer</em> Education</h1>
       <p class="hero-sub"><strong>Government Recognized Computer Training Institute</strong> with job-oriented courses. Learn from certified trainers and launch your career with confidence.</p>
@@ -408,6 +596,93 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
           <div class="mcc">📈 Adv. Excel</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─ FOUNDER SECTION ─ -->
+<section id="founder" style="padding:80px 0;background:#f8fafc">
+  <div class="si">
+    
+    <div class="scenter smb">
+      <span class="stag">Founder Message</span>
+      <h2 class="sh2">
+        Meet Our <span class="hl">Founder</span>
+      </h2>
+      <p class="sdesc">
+        Dedicated to empowering students with quality computer education and practical skills for a successful future.
+      </p>
+    </div>
+
+    <div style="
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:40px;
+      align-items:center;
+      background:#fff;
+      border-radius:24px;
+      padding:35px;
+      box-shadow:0 8px 30px rgba(0,0,0,.08);
+      border:1px solid #e2e8f0;
+    ">
+
+      <!-- Founder Image -->
+      <div style="text-align:center">
+        <img src="founder.jpeg"
+             alt="Founder"
+             style="
+               width:260px;
+               height:260px;
+               object-fit:cover;
+               border-radius:20px;
+               border:4px solid #2563eb;
+             ">
+      </div>
+
+      <!-- Founder Content -->
+      <div>
+        <h3 style="
+          font-size:2rem;
+          margin-bottom:8px;
+          color:#0f172a;
+          font-family:'Plus Jakarta Sans',sans-serif;
+        ">
+          Mr. Mohd Ahsan
+        </h3>
+
+        <p style="
+          color:#2563eb;
+          font-weight:700;
+          margin-bottom:18px;
+          font-size:15px;
+        ">
+          Founder & Director — NEET Institute of Technology & Management
+        </p>
+
+        <p style="
+          color:#475569;
+          line-height:1.9;
+          font-size:15px;
+          margin-bottom:18px;
+        ">
+          Our mission is to provide affordable and high-quality computer education
+          to every student. We focus on practical training, government certified
+          courses, personality development, and career guidance so students can
+          become industry-ready professionals.
+        </p>
+
+        <div style="
+          display:flex;
+          gap:12px;
+          flex-wrap:wrap;
+          margin-top:20px;
+        ">
+          <div class="cert-chip">10+ Years Experience</div>
+          <div class="cert-chip">Career Mentor</div>
+          <div class="cert-chip">Skill Development Expert</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -824,58 +1099,42 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
     <div class="fac-grid">
       <div class="fc fi-anim">
         <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Mr. Vikash Yadav</div>
+        <div class="fc-name">Ms. Iqra Bano</div>
         <div class="fc-exp">Computer Science & IT</div>
-        <div class="fc-qual">MCA – UPTU · NIELIT Certified Trainer</div>
+        <div class="fc-qual">MSc – · NIELIT Certified Trainer</div>
         <div class="fc-certs"><span class="cert-chip">NIELIT</span><span class="cert-chip">O Level</span><span class="cert-chip">CCC</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">8+ Years · 2000+ Students Trained</div>
+        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">3+ Years · 1000+ Students Trained</div>
         <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
       </div>
       <div class="fc fi-anim">
         <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Mrs. Priya Sharma</div>
+        <div class="fc-name">Ms. Zaireen Fatima</div>
         <div class="fc-exp">Tally & Financial Accounting</div>
-        <div class="fc-qual">B.Com, M.Com · Tally Certified Expert</div>
+        <div class="fc-qual">BBA, MBA · Tally Certified Expert</div>
         <div class="fc-certs"><span class="cert-chip">Tally Prime</span><span class="cert-chip">GST</span><span class="cert-chip">DFA</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">7+ Years · CA Firms &amp; Banks Trainer</div>
+        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">5+ Years · CA Firms &amp; Banks Trainer</div>
         <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
       </div>
+      
       <div class="fc fi-anim">
         <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Mr. Rohit Verma</div>
-        <div class="fc-exp">Graphic Design & Video Editing</div>
-        <div class="fc-qual">BFA, Adobe Certified Professional</div>
-        <div class="fc-certs"><span class="cert-chip">Photoshop</span><span class="cert-chip">Premiere</span><span class="cert-chip">Illustrator</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">6+ Years · Agency &amp; Studio Experience</div>
-        <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
-      </div>
-      <div class="fc fi-anim">
-        <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Ms. Anjali Gupta</div>
+        <div class="fc-name">Ms. </div>
         <div class="fc-exp">Coding & UI/UX Design</div>
         <div class="fc-qual">B.Tech CSE · Google UX Design Certified</div>
         <div class="fc-certs"><span class="cert-chip">Python</span><span class="cert-chip">Figma</span><span class="cert-chip">React</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">5+ Years · IT Industry Background</div>
+        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px"> Years · IT Industry Background</div>
         <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
       </div>
       <div class="fc fi-anim">
         <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Mr. Sunil Tiwari</div>
+        <div class="fc-name">Ms. Sumrajadi</div>
         <div class="fc-exp">MS Office & Advanced Excel</div>
-        <div class="fc-qual">MCA · Microsoft Office Specialist</div>
+        <div class="fc-qual">ITI · Microsoft Office Specialist</div>
         <div class="fc-certs"><span class="cert-chip">MOS</span><span class="cert-chip">Excel VBA</span><span class="cert-chip">CCC</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">10+ Years · Corporate Trainer</div>
+        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">3+ Years · Corporate Trainer</div>
         <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
       </div>
-      <div class="fc fi-anim">
-        <div class="fc-avatar"><div class="fc-ph">📷<span style="font-size:10px;opacity:.6">Photo Here</span></div></div>
-        <div class="fc-name">Mrs. Sunita Mishra</div>
-        <div class="fc-exp">O Level & DCA Courses</div>
-        <div class="fc-qual">M.Sc IT · NIELIT O Level Certified</div>
-        <div class="fc-certs"><span class="cert-chip">O Level</span><span class="cert-chip">DCA</span><span class="cert-chip">ADCA</span></div>
-        <div style="font-size:11.5px;color:var(--g500);margin-bottom:10px">9+ Years · Govt. Exam Coach</div>
-        <div class="fc-socials"><a class="fsoc" href="#">in</a><a class="fsoc" href="#">🐦</a><a class="fsoc" href="#">📧</a></div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -898,18 +1157,18 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
       <button class="gcat" onclick="gCat('group',this)">👥 Group Photos</button>
     </div>
     <div class="gal-scroll" id="galScroll">
-      <div class="gc" data-gcat="class"><div class="gc-img">🖥️<span>Classroom Photo</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Computer Lab – Batch 2024</div></div>
-      <div class="gc" data-gcat="lab"><div class="gc-img">🔬<span>Practical Lab</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Tally Practical Session</div></div>
-      <div class="gc" data-gcat="cert"><div class="gc-img">📜<span>Certificate Dist.</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">O Level Certificate Distribution</div></div>
-      <div class="gc" data-gcat="gov"><div class="gc-img">🏛️<span>Yogi Ji Event</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">CM Yogi Certificate Event · 2024</div></div>
-      <div class="gc" data-gcat="event"><div class="gc-img">🎉<span>Seminar Photo</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Career Guidance Seminar</div></div>
-      <div class="gc" data-gcat="group"><div class="gc-img">👥<span>Group Photo</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Batch 2024 – Group Photo</div></div>
-      <div class="gc" data-gcat="class"><div class="gc-img">💻<span>Classroom Photo</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Graphic Design Lab Session</div></div>
-      <div class="gc" data-gcat="event"><div class="gc-img">🏅<span>Award Function</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Annual Award Function · 2024</div></div>
-      <div class="gc" data-gcat="lab"><div class="gc-img">🎨<span>Design Lab</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Adobe Photoshop Lab</div></div>
-      <div class="gc" data-gcat="gov"><div class="gc-img">📋<span>Govt. Program</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Skill India Program · Lucknow</div></div>
-      <div class="gc" data-gcat="cert"><div class="gc-img">🎓<span>Convocation</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Annual Convocation Ceremony</div></div>
-      <div class="gc" data-gcat="group"><div class="gc-img">🤝<span>Students Activity</span><span style="font-size:10px">Add real image</span></div><div class="gc-label">Student Activities Day</div></div>
+      <div class="gc" data-gcat="class"><div class="gc-img">🖥️<span>Classroom Photo</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Computer Lab – Batch 2024</div></div>
+      <div class="gc" data-gcat="lab"><div class="gc-img">🔬<span>Practical Lab</span><span style="font-size:10px"><img src="lab.jfif"></span></div><div class="gc-label">Tally Practical Session</div></div>
+      <div class="gc" data-gcat="cert"><div class="gc-img">📜<span>Certificate Dist.</span><span style="font-size:10px"><img src="cer1.jpeg"></span></div><div class="gc-label">O Level Certificate Distribution</div></div>
+      <div class="gc" data-gcat="gov"><div class="gc-img">🏛️<span>Yogi Ji Event</span><span style="font-size:10px"><img src=""></span></div><div class="gc-label">CM Yogi Certificate Event · 2024</div></div>
+      <div class="gc" data-gcat="event"><div class="gc-img">🎉<span>Seminar Photo</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Career Guidance Seminar</div></div>
+      <div class="gc" data-gcat="group"><div class="gc-img">👥<span>Group Photo</span><span style="font-size:10px"><img src=""></span></div><div class="gc-label">Batch 2024 – Group Photo</div></div>
+      <div class="gc" data-gcat="class"><div class="gc-img">💻<span>Classroom Photo</span><span style="font-size:10px"><img src="lab.jpg"></span></div><div class="gc-label">Graphic Design Lab Session</div></div>
+      <div class="gc" data-gcat="event"><div class="gc-img">🏅<span>Award Function</span><span style="font-size:10px"><img src="cert2.jpg"></span></div><div class="gc-label">Annual Award Function · 2024</div></div>
+      <div class="gc" data-gcat="lab"><div class="gc-img">🎨<span>Design Lab</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Adobe Photoshop Lab</div></div>
+      <div class="gc" data-gcat="gov"><div class="gc-img">📋<span>Govt. Program</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Skill India Program · Lucknow</div></div>
+      <div class="gc" data-gcat="cert"><div class="gc-img">🎓<span>Convocation</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Annual Convocation Ceremony</div></div>
+      <div class="gc" data-gcat="group"><div class="gc-img">🤝<span>Students Activity</span><span style="font-size:10px"><img src="class.jpg"></span></div><div class="gc-label">Student Activities Day</div></div>
     </div>
     <div style="text-align:center;margin-top:28px;color:rgba(255,255,255,.45);font-size:13px">← Scroll to see more gallery items →</div>
   </div>
@@ -1048,10 +1307,10 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
         </div>
         <div class="ai-card blue-card">
           <h4>📞 Quick Contact</h4>
-          <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">📱 <strong>5983434786</strong></p>
+          <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">📱 <strong>+91 95983 34786</strong></p>
           <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">📧 neetacademy1@gmail.com</p>
           <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">🌐 www.neeteducation.com</p>
-          <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">🕐 Mon–Sat · 8:00 AM – 5:00 PM</p>
+          <p style="font-size:13.5px;opacity:.9;margin-bottom:7px">🕐 Mon–Sat · 8:00 AM – 7:00 PM</p>
           <p style="font-size:12px;opacity:.7">📍 439B/908B, Nagarika Enclave, Tikariya B.O, Lucknow – 226003</p>
         </div>
       </div>
@@ -1083,16 +1342,16 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
     <div class="scenter smb fi-anim">
       <span class="stag">Get In Touch</span>
       <h2 class="sh2">Contact <span class="hl">NEET Institute</span></h2>
-      <p class="sdesc">We're available Monday to Saturday, 8:00 AM – 5:00 PM. Walk in or reach out digitally — we're always here to help.</p>
+      <p class="sdesc">We're available Monday to Saturday, 8:00 AM – 7:00 PM. Walk in or reach out digitally — we're always here to help.</p>
     </div>
     <div class="con-grid">
       <div class="fi-anim">
         <div class="ci-list">
           <div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl">Address</div><div class="ci-val">439B/908B, Third Floor, Nagarika Enclave,<br>Tikariya B.O, Lucknow, UP – 226003</div></div></div>
-          <div class="ci-item"><div class="ci-ico">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91 5983434786</div></div></div>
+          <div class="ci-item"><div class="ci-ico">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91 95983 34786</div></div></div>
           <div class="ci-item"><div class="ci-ico">📧</div><div><div class="ci-lbl">Email</div><div class="ci-val">neetacademy1@gmail.com</div></div></div>
           <div class="ci-item"><div class="ci-ico">🌐</div><div><div class="ci-lbl">Website</div><div class="ci-val"><a href="https://www.neeteducation.com" style="color:var(--ac)">www.neeteducation.com</a></div></div></div>
-          <div class="ci-item"><div class="ci-ico">🕐</div><div><div class="ci-lbl">Working Hours</div><div class="ci-val">Monday – Saturday<br>8:00 AM to 5:00 PM</div></div></div>
+          <div class="ci-item"><div class="ci-ico">🕐</div><div><div class="ci-lbl">Working Hours</div><div class="ci-val">Monday – Saturday<br>8:00 AM to 7:00 PM</div></div></div>
         </div>
         <div class="map-ph">
           <iframe src="https://maps.google.com/maps?q=26.873000,80.877600&z=15&output=embed" loading="lazy" allowfullscreen></iframe>
@@ -1123,7 +1382,7 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
         <div class="fg"><label>Message *</label><textarea class="fi" rows="5" placeholder="Write your message or inquiry here..." style="resize:vertical"></textarea></div>
         <button class="btn-sub" onclick="submitCon()">📨 Send Message</button>
         <div style="margin-top:14px;background:var(--off2);border-radius:9px;padding:13px 14px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ac2);border:1px solid rgba(37,99,235,.15)">
-          💬 Prefer instant answers? WhatsApp us at <strong>5983434786</strong> — we reply within minutes!
+          💬 Prefer instant answers? WhatsApp us at <strong>+91 95983 34786</strong> — we reply within minutes!
         </div>
       </div>
     </div>
@@ -1196,10 +1455,10 @@ body.dark .map-ph{border-color:rgba(255,255,255,.1)}
         <div class="ft-links">
           <a href="#">📍 Nagarika Enclave, Lucknow</a>
           <a href="#">🏙️ Tikariya B.O – 226003</a>
-          <a href="#">📞 +91 5983434786</a>
+          <a href="#">📞 +91 95983 34786</a>
           <a href="#">📧 neetacademy1@gmail.com</a>
           <a href="#">🌐 neeteducation.com</a>
-          <a href="#">🕐 Mon–Sun: 8AM – 5PM</a>
+          <a href="#">🕐 Mon–Sun: 8AM – 7PM</a>
         </div>
         <div style="margin-top:16px;background:rgba(255,255,255,.05);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.08)">
           <div style="font-size:11px;color:var(--g500);margin-bottom:4px">GPS Coordinates</div>
@@ -1255,7 +1514,10 @@ function toggleTheme(){
   else{nav.style.background='';nav.classList.remove('light-nav');}
 }
 document.getElementById('themeBtn').addEventListener('click',toggleTheme);
-document.getElementById('themeBtnMob').addEventListener('click',toggleTheme);
+const themeBtnMob = document.getElementById('themeBtnMob');
+if(themeBtnMob){
+  themeBtnMob.addEventListener('click',toggleTheme);
+}
 
 // COUNTERS
 let ran=false;
