@@ -2235,6 +2235,58 @@
         grid-template-columns: 1fr
       }
     }
+
+    /* ===== FOUNDER SECTION ===== */
+
+.founder-wrap{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:40px;
+  align-items:center;
+  background:var(--w);
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  border:1px solid var(--g200);
+}
+
+.founder-img{
+  width:260px;
+  height:260px;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid #2563eb;
+}
+
+.cert-wrap{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:768px){
+
+  .founder-wrap{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:22px;
+    gap:24px;
+  }
+
+  .founder-img{
+    width:180px;
+    height:180px;
+    margin:auto;
+  }
+
+  .cert-wrap{
+    justify-content:center;
+  }
+
+}
   </style>
 </head>
 
@@ -2373,21 +2425,11 @@
         </p>
       </div>
 
-      <div class="founder-wrap" style="
-display:grid;
-grid-template-columns:320px 1fr;
-      gap:40px;
-      align-items:center;
-      background:#fff;
-      border-radius:24px;
-      padding:35px;
-      box-shadow:0 8px 30px rgba(0,0,0,.08);
-      border:1px solid #e2e8f0;
-    ">
+      <div class="founder-wrap">
 
         <!-- Founder Image -->
         <div style="text-align:center">
-          <img src="founder.jpeg" alt="Founder" style="
+          <img src="founder.jpg" class="founder-img" alt="Founder" style="
                width:260px;
                height:260px;
                object-fit:cover;
@@ -2428,12 +2470,7 @@ grid-template-columns:320px 1fr;
             become industry-ready professionals.
           </p>
 
-          <div class="cert-wrap" style="
-display:flex;
-gap:12px;
-          flex-wrap:wrap;
-          margin-top:20px;
-        ">
+          <div class="cert-wrap">
             <div class="cert-chip">10+ Years Experience</div>
             <div class="cert-chip">Career Mentor</div>
             <div class="cert-chip">Skill Development Expert</div>
